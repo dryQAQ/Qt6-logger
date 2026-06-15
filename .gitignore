@@ -1,0 +1,35 @@
+# Qt build files
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+Makefile
+qmake_stash
+*.qm
+
+# Build directories
+build*/
+bin/
+obj/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+
+# Log files
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

@@ -193,7 +193,7 @@ int main(int argc, char *argv[])
     Logger& logger = Logger::instance();
 
     // 自定义 Sink 1：写入额外文件
-    logger.addSink([](sslocal://flow/file_open?url=const+QString%26+line&flow_extra=eyJsaW5rX3R5cGUiOiJjb2RlX2ludGVycHJldGVyIn0=) {
+    logger.addSink([](const QString& line) {
         QFile file("./custom_sink.log");
         file.open(QIODevice::Append | QIODevice::Text);
         QTextStream stream(&file);
@@ -202,7 +202,7 @@ int main(int argc, char *argv[])
     });
 
     // 自定义 Sink 2：模拟网络上报
-    logger.addSink([](sslocal://flow/file_open?url=const+QString%26+line&flow_extra=eyJsaW5rX3R5cGUiOiJjb2RlX2ludGVycHJldGVyIn0=) {
+    logger.addSink([](const QString& line) {
         qDebug() << "[网络日志]" << line;
     });
 
@@ -427,7 +427,7 @@ int main(int argc, char *argv[])
     logger.setLevel(Logger::Level::Debug);
     logger.enableFileSink("./logs/demo.log");
 
-    logger.addSink([](sslocal://flow/file_open?url=const+QString%26+line&flow_extra=eyJsaW5rX3R5cGUiOiJjb2RlX2ludGVycHJldGVyIn0=) {
+    logger.addSink([](const QString& line) {
         qDebug() << "[自定义Sink]" << line;
     });
 
